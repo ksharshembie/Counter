@@ -31,23 +31,13 @@ class MainActivity : AppCompatActivity(), CounterView {
     }
 
     override fun showNewCount(count: Int) {
-
-        if (count == 10) {
-            binding.tvResult.text = count.toString()
-            Toast.makeText(
-                applicationContext,
-                getString(R.string.congragulations),
-                Toast.LENGTH_SHORT
-            ).show()
-        } else if (count == 15) {
-            binding.tvResult.setTextColor(getColor(R.color.green))
-            binding.tvResult.text = count.toString()
-        } else {
-            binding.tvResult.setTextColor(getColor(R.color.purple_500))
-            binding.tvResult.text = count.toString()
-        }
-
+        binding.tvResult.text = count.toString()
+    }
+    override fun showToast(){
+        Toast.makeText(applicationContext,getString(R.string.congragulations),Toast.LENGTH_SHORT).show()
     }
 
-
+    override fun changeColor(color: Int) {
+        binding.tvResult.setTextColor(getColor(color))
+    }
 }
